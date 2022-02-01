@@ -6,7 +6,7 @@ import dbObject from "../db/conn.js";
 import path from 'path'
 const recordRoutes = Express.Router();
 
-recordRoutes.get('/getimage', Express.static('./uploads'))
+recordRoutes.use('/getimage', Express.static('./uploads'))
 recordRoutes.post('/uploadimage', function (request, response) {
   const storage = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -42,7 +42,7 @@ recordRoutes.get('/allimage', (req, res) => {
   let conn = dbObject.getDb()
   conn.collection('records').find({}).toArray((err, result) => {
     if (err) throw err
-    res.status(200).json(result)
+    res.json(result)
   })
 })
 

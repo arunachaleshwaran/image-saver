@@ -1,0 +1,22 @@
+img{
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+.card{
+	aspect-ratio: 1;
+	display: flex;
+	flex-direction: column;
+	border-radius: 1em;
+	border: .1em solid #333;
+	overflow: hidden;
+	justify-items: flex-end;
+}
+.name{
+	text-align: center;
+	background-color: blueviolet;
+	color:white;
+	font-weight: bolder;
+	position: relative;
+	bottom: 0;
+}
