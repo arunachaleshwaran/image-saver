@@ -22,25 +22,3 @@ app.listen(port, () => {
 });
 
 
-import multer from "multer";
-const storage = multer.diskStorage({
-	destination: function (req, file, callback) {
-		callback(null, './uploads');
-	},
-	filename: function (req, file, callback) {
-		callback(null, Date.now()+ '-' +file.originalname);
-	}
-});
-const upload = multer({ storage }).single('userPhoto');
-
-app.post('/uploadimage', function (req, res) {
-	upload(req, res, function (err) {
-		if (err) {
-			return res.end("Error uploading file.");
-		}
-		res.end("File is uploaded");
-	});
-});
-// app.get('/image',(req,res)=>console.log('hi'))
-// app.use(Express.static('./uploads'));
-app.use('/getimage',Express.static('./uploads'))
